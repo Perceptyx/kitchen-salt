@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'kitchen'
 require 'kitchen-salt/util'
 
 describe Kitchen::Salt::Util do
