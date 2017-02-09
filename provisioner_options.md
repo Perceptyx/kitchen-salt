@@ -25,6 +25,7 @@ salt_file_root| "/srv/salt"|
 salt_pillar_root| "/srv/pillar"|
 salt_state_top| "/srv/salt/top.sls"|
 salt_run_highstate| true |
+salt_call_extra_args | | This option allows you to add additional flags to salt-call command
 [state_top](#state_top)| {} | states that should be applied, in standard top.sls format
 [state_top_from_file](#state_top_from_file) | false |
 state_collection | false | treat this directory as a salt state collection and not a formula

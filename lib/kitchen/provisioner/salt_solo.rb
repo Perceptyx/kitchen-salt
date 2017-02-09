@@ -56,6 +56,7 @@ module Kitchen
         state_top_from_file: false,
         salt_run_highstate: true,
         salt_copy_filter: [],
+        salt_call_extra_args: '',
         is_file_root: false,
         require_chef: true,
         dependencies: [],
@@ -125,6 +126,7 @@ module Kitchen
         cmd = sudo("salt-call --config-dir=#{File.join(config[:root_path], config[:salt_config])} --local state.highstate")
         cmd << " --log-level=#{config[:log_level]}" if config[:log_level]
         cmd << " --id=#{config[:salt_minion_id]}" if config[:salt_minion_id]
+        cmd << " #{config[:salt_call_extra_args]}" if config[:salt_call_extra_args]
         cmd << " test=#{config[:dry_run]}" if config[:dry_run]
         if salt_version > RETCODE_VERSION || salt_version == 'latest'
           # hope for the best and hope it works eventually
